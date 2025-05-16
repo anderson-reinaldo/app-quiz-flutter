@@ -6,6 +6,18 @@ class Result extends StatelessWidget {
 
   Result(this.pontuacao, this.reset);
 
+  String get title {
+    if (pontuacao < 8) {
+      return 'Parabéns';
+    } else if (pontuacao < 12) {
+      return 'Vocé foi bom';
+    } else if (pontuacao < 16) {
+      return 'Vocé foi muito bom';
+    }else{
+      return 'Nivel Jedi!';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -14,7 +26,7 @@ class Result extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            'Fim do Quiz - Parabéns',
+            title,
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
           ),
           Text(
